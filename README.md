@@ -27,11 +27,10 @@ The Python code can be run in bash with the following,
 in SSL security protocol:
 ```bash
 python main.py \
-  --security-protocol ssl \
-  --cert-folder ~/kafkaCerts/ \
-  --host kafka-<name>.aivencloud.com \
+  --cert-folder \
+  --host \
   --port 13041 \
-  --topic-name pizza-orders \
+  --topic-name  \
   --nr-messages 0 \
   --max-waiting-time 0
 ```
@@ -136,23 +135,18 @@ avn service get $KAFKA_SERVICE_NAME \
   --project $PROJECT_NAME \
   --format '{service_uri}'
 ```
-
 The Apache Kafka Service URI is in the form `hostname:port` and provides the `hostname` and `port` needed to execute the code.
 You can wait for the newly created Apache Kafka instance to be ready with
 
 ```bash
 avn service wait $KAFKA_SERVICE_NAME --project $PROJECT_NAME
 ```
-
 For a more detailed description of services and required credentials, check the [blog post](blogs.aiven.io)
 
-## No Pizza? No Problem!
 
-The demo app produces pizza data, however is very simple to change the dataset produced to anything else.
 The code is based on [Faker](https://faker.readthedocs.io/en/master/), an Open Source Python library to generate fake data.
 
 To modify the data generated, change the `produce_pizza_order` function within the `main.py` file. The output of the function should be two python dictionaries, containing the event `key` and `message`
-
 
 
 To customise your dataset, you can check Faker's providers in the [related doc](https://faker.readthedocs.io/en/master/providers.html)
