@@ -40,7 +40,7 @@ class StockProvider(BaseProvider):
         message = {
             'stock_name': stockname,
             'stock_value': self.stock_value(stockname),
-            'timestamp': datetime.today().isoformat()
+            'timestamp': datetime.now().isoformat()
         }
         key = str(uuid.uuid4())
         return message, key
